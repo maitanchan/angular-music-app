@@ -1,0 +1,40 @@
+<div class="songs-page">
+
+    <div class="songs-page-container">
+        <span class="line"></span>
+        <span class="line-2"></span>
+        <div class="area-rank">
+            <span>Country</span>
+            <span>Country</span>
+            <span>Country</span>
+        </div>
+        <ul>
+            <li *ngFor="let song of songs.slice(0, 6)">{{ song.title }}</li>
+        </ul>
+        <ul>
+            <li *ngFor="let song of songs.slice(6, 12)">{{ song.title }}</li>
+        </ul>
+        <ul>
+            <li *ngFor="let song of songs.slice(12, 18)">{{ song.title }}</li>
+        </ul>
+    </div>
+
+    <div class="song-rankings">
+        <h3>Song charts</h3>
+        <span class="line"></span>
+        <span class="line-2"></span>
+        <div class="area-rank">
+            <span>Country</span>
+            <span>Country</span>
+            <span>Country</span>
+        </div>
+        <div class="songs">
+            <div class="song"
+                *ngFor="let song of songs.slice(6, 12); let i = index">
+                <span class="rank">{{ i + 1 }} </span>
+                <span style="font-size: 15px;">{{ song.title }}</span>
+            </div>
+
+        </div>
+    </div>
+</div>

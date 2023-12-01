@@ -1,0 +1,19 @@
+<h3>ALBUMS</h3>
+
+<div class="albums-container">
+
+    <figure class="snip1518" *ngFor="let album of albums.slice(0, 4)">
+        <div class="image"><img
+                [src]="album.coverImages" /></div>
+        <figcaption>
+            <h5>{{ album.title }}</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
+                temporibus.</p>
+            <footer>
+
+            </footer>
+        </figcaption>
+        <a href="#"></a>
+    </figure>
+
+</div>

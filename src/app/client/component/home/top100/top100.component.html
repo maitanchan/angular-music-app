@@ -1,0 +1,28 @@
+<div class="music-lists-container">
+    <div class="albums">
+        <h3>TOP 100</h3>
+        <div class="album-row">
+            <div class="album" *ngFor="let album of top5Albums">
+                <img [src]="album.coverImages" alt="Album Cover">
+                <span class="album-title">{{ album.title }}</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="song-rankings">
+        <h3>Song charts</h3>
+        <span class="line"></span>
+        <span class="line-2"></span>
+        <div class="area-rank">
+            <span>Country</span>
+            <span>Country</span>
+            <span>Country</span>
+        </div>
+        <div class="songs">
+            <div class="song">
+
+            </div>
+        </div>
+    </div>
+
+</div>

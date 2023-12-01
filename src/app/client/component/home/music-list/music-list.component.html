@@ -1,0 +1,40 @@
+<div class="music-lists-container">
+
+    <div class="albums">
+        <h3>Name</h3>
+        <div class="album-row">
+            <div class="album" *ngFor="let album of albums.slice(0, 5)">
+                <img [src]="album.coverImages" alt="Album Cover">
+                <span class="album-title">{{ album.title }}</span>
+            </div>
+        </div>
+
+        <h3>Name</h3>
+        <div class="album-row">
+            <div class="album" *ngFor="let album of albums.slice(5, 10)">
+                <img [src]="album.coverImages" alt="Album Cover">
+                <span class="album-title">{{ album.title }}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="song-rankings">
+        <h3>Song charts</h3>
+        <span class="line"></span>
+        <span class="line-2"></span>
+        <div class="area-rank">
+            <span>Country</span>
+            <span>Country</span>
+            <span>Country</span>
+        </div>
+        <div class="songs">
+            <div class="song"
+                *ngFor="let song of songs.slice(0, 6); let i = index">
+                <span class="rank">{{ i + 1 }} </span>
+                <span style="font-size: 15px;">{{ song.title }}</span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
