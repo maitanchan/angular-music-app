@@ -16,22 +16,22 @@ export const navItems: INavData[] = [
   },
   {
     name: 'geners',
-    url: '/geners',
+    url: '/admin/geners',
     iconComponent: { name: 'cil-description' }
   },
   {
     name: 'artists',
-    url: '/artists',
+    url: '/admin/artists',
     iconComponent: { name: 'cil-drop' }
   },
   {
     name: 'songs',
-    url: '/songs',
+    url: '/admin/songs',
     iconComponent: { name: 'cil-star' }
   },
   {
     name: 'albums',
-    url: '/albums',
+    url: '/admin/albums',
     iconComponent: { name: 'cil-calculator' }
   },
   {

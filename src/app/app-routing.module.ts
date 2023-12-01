@@ -12,13 +12,9 @@ import { AlbumsListComponent } from './components/albums/albums-list/album-list.
 import { SignInComponent } from './components/sign-in/sign-in.component';
 
 const routes: Routes = [
+
   {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  },
-  {
-    path: '',
+    path: 'admin',
     component: DefaultLayoutComponent,
     data: {
       title: 'Home'
@@ -37,7 +33,7 @@ const routes: Routes = [
     ]
   },
   { path: 'client', loadChildren: () => import('./client-routing.module').then(m => m.ClientRoutingModule) },
-  {path: '**', redirectTo: 'dashboard'}
+  {path: '**', redirectTo: 'admin/sign-in'}
 ];
 
 @NgModule({
