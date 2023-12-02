@@ -1,6 +1,6 @@
-<div class="">
-  <h4>Songs List</h4>    
-  
+<div class>
+  <h4>Songs List</h4>
+
   <button class="btn btn-info mr-2" (click)="setActiveSong()">
     Add
   </button>
@@ -8,7 +8,8 @@
   <div class="contaiter">
     <div class="row">
       <div class="col-12">
-        <p-table [value]="songs" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        <p-table [value]="songs" [paginator]="true" [rows]="10"
+          [showCurrentPageReport]="true"
           [tableStyle]="{ 'min-width': '50rem' }"
           currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
           [rowsPerPageOptions]="[10, 25, 50]">
@@ -26,11 +27,13 @@
               <td>{{ customer.duration }}</td>
               <td>{{ customer.releaseDate | date: 'dd/MM/yyyy' }}</td>
               <td>
-                <button class="btn btn-info mr-2" (click)="setActiveSong(customer)">
+                <button class="btn btn-info mr-2"
+                  (click)="setActiveSong(customer)">
                   Edit
                 </button>
-                <p-confirmPopup></p-confirmPopup>
-                <button class="btn btn-danger mr-2" (click)="confirm($event,customer)">
+                <!-- <p-confirmpopup></p-confirmpopup> -->
+                <button class="btn btn-danger mr-2"
+                  (click)="confirm($event,customer)">
                   Delete
                 </button>
               </td>

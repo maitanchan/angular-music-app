@@ -8,8 +8,7 @@
           class="formControl"
           placeholder="Username"
           #userName
-          required
-        />
+          required />
       </div>
       <div class="formGroup">
         <input
@@ -17,8 +16,7 @@
           class="formControl"
           placeholder="Password"
           #userPassword
-          required
-        />
+          required />
       </div>
       <!-- Calling SignIn Api from AuthService -->
       <div class="formGroup">
@@ -26,8 +24,7 @@
           type="button"
           class="btn btnPrimary"
           value="Log in"
-          (click)="authService.SignIn(userName.value, userPassword.value)"
-        />
+          (click)="authService.SignIn(userName.value, userPassword.value)" />
       </div>
       <div class="formGroup">
         <span class="or"><span class="orInner">Or</span></span>
@@ -37,14 +34,10 @@
       </div>
     </div>
     <div class="redirectToLogin">
-      <span
-        >Don't have an account?<span
+      <span>Don't have an account?<span
           class="redirect"
-          routerLink="/register-user"
-        >
-          Sign Up</span
-        ></span
-      >
+          routerLink="/register-user">
+          Sign Up</span></span>
     </div>
   </div>
 </div>

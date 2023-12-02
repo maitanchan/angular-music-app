@@ -6,4 +6,5 @@ export class Song {
   title?: string;
   albumId?: string;
   artistId?: string;
+  url?: string;
 }

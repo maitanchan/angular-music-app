@@ -22,9 +22,10 @@
         <div class="form-group">
           <label for="title">coverImages</label>
           <input
-            type="number"
+            type="file"
             class="form-control"
             id="coverImages"
+            (change)="onFileChange($event)"
             required
             [(ngModel)]="currentAlbum.coverImages"
             name="coverImages" />

@@ -3,7 +3,13 @@
 
     <div class="song-list">
         <ul>
-            <li *ngFor="let song of songs.slice(0, 6)">{{ song.title }}</li>
+            <li *ngFor="let song of songs.slice(0, 6)">
+                {{ song.title }}
+                <!-- <audio controls>
+                    <source [src]="song.url">
+                </audio> -->
+            </li>
+
         </ul>
     </div>
 

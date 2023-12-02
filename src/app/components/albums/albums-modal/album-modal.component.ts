@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 import { AlbumService } from 'src/app/services/album.service';
 import { GenerService } from 'src/app/services/geners.service';
 import { ArtistService } from 'src/app/services/artists.service';
+import { AngularFireStorage } from "@angular/fire/compat/storage"
 
 @Component({
   selector: 'app-album-modal',
@@ -25,12 +26,30 @@ export class AlbumModalsComponent implements OnInit {
   songs: any;
   artists: any;
   visible = false;
-
+  title = 'imageupload';
+  
   constructor(private songService: SongService,    
     private albumService: AlbumService, 
     private artistService: ArtistService,
-    private generService: GenerService
+    private generService: GenerService,
+    private fireStorage:AngularFireStorage
     ) { }
+
+    async onFileChange(event: any) {
+      const file = event.target.files[0];
+      if (file) {
+        const path = `img/${file.name}`;
+        const uploadTask = this.fireStorage.upload(path, file);
+    
+        uploadTask.then(async (snapshot) => {
+          const url = await snapshot.ref.getDownloadURL();
+          console.log(url);
+        }).catch(error => {
+          console.error(error);
+        });
+      }
+    }
+    
 
   ngOnInit(): void {
     this.message = '';
