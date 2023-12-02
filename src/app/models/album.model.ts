@@ -5,5 +5,7 @@ export class Album {
   releaseDate?: Date;
   coverImages?: string;
   songIds?: string[];
-  view?: number
+  view?: number;
+  songs?: string[];
+  artists?: string[];
 }

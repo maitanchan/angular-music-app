@@ -14,7 +14,8 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent } from './containers';
-
+import { MatSliderModule } from '@angular/material/slider';
+import { MatIconModule } from '@angular/material/icon';
 
 
 import {
@@ -86,6 +87,9 @@ import { ArtistsComponent } from './client/component/artist/artists/artists.comp
 import { LoginPageComponent } from './client/component/login-page/login-page.component';
 import { RegisterPageComponent } from './client/component/register-page/register-page.component';
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { AlbumDetailPageComponent } from './client/component/album-detail-page/album-detail-page.component';
+import { ArtistDetailPageComponent } from './client/component/artist-detail-page/artist-detail-page.component';
+import { AudioPlayerComponent } from './client/container/client-layout/audio-player/audio-player.component';
 //import { UploadFormComponent } from './components/upload-form/upload-form.component';
 
 const APP_CONTAINERS = [
@@ -134,7 +138,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS,  ],
+  declarations: [AppComponent, ...APP_CONTAINERS, AlbumDetailPageComponent, ArtistDetailPageComponent, AudioPlayerComponent,  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -177,7 +181,9 @@ const APP_CONTAINERS = [
     ModalToggleDirective,
     CalendarModule,
     ConfirmPopupModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatSliderModule,
+    MatIconModule
     //AngularFireAuthModule
   ],
   providers: [

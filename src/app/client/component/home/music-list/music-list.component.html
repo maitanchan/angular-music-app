@@ -4,16 +4,20 @@
         <h3>Name</h3>
         <div class="album-row">
             <div class="album" *ngFor="let album of albums.slice(0, 5)">
-                <img [src]="album.coverImages" alt="Album Cover">
-                <span class="album-title">{{ album.title }}</span>
+                <a [routerLink]="['../album-detail-page', album.id]">
+                    <img [src]="album.coverImages" alt="Album Cover">
+                    <span class="album-title">{{ album.title }}</span>
+                </a>
             </div>
         </div>
 
         <h3>Name</h3>
         <div class="album-row">
             <div class="album" *ngFor="let album of albums.slice(5, 10)">
-                <img [src]="album.coverImages" alt="Album Cover">
-                <span class="album-title">{{ album.title }}</span>
+                <a [routerLink]="['../album-detail-page', album.id]">
+                    <img [src]="album.coverImages" alt="Album Cover">
+                    <span class="album-title">{{ album.title }}</span>
+                </a>
             </div>
         </div>
     </div>

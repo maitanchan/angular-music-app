@@ -38,8 +38,8 @@
         <div class="form-group">
           <label for="Artist">Artist</label>
           <ng-select placeholder="Select Artist" name="artistId"
-            bindLabel="name" bindValue="id" [multiple]="false"
-            [(ngModel)]="currentAlbum.artistId" [clearable]="true"
+            bindLabel="name" bindValue="name" [multiple]="false"
+            [(ngModel)]="currentAlbum.artists" [clearable]="true"
             [items]="artists"
             class="select-form-control w100">
           </ng-select>
@@ -47,8 +47,8 @@
         <div class="form-group">
           <label for="Song">Song</label>
           <ng-select placeholder="Select Songs" name="songs"
-            bindLabel="title" bindValue="id" [multiple]="true"
-            [(ngModel)]="currentAlbum.songIds" [clearable]="true"
+            bindLabel="title" bindValue="title" [multiple]="true"
+            [(ngModel)]="currentAlbum.songs" [clearable]="true"
             [items]="songs"
             class="select-form-control w100">
           </ng-select>

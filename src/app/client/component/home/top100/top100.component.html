@@ -2,9 +2,11 @@
     <div class="albums">
         <h3>TOP 100</h3>
         <div class="album-row">
-            <div class="album" *ngFor="let album of top5Albums">
-                <img [src]="album.coverImages" alt="Album Cover">
-                <span class="album-title">{{ album.title }}</span>
+            <div class="album" *ngFor="let album of top5Albums.slice(0, 5)">
+                <a [routerLink]="['../album-detail-page', album.id]">
+                    <img [src]="album.coverImages" alt="Album Cover">
+                    <span class="album-title">{{ album.title }}</span>
+                </a>
             </div>
         </div>
 

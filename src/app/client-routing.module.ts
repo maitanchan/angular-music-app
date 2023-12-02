@@ -9,6 +9,8 @@ import { Top100PageComponent } from './client/component/top100-page/top100-page.
 import { ChartPageComponent } from './client/component/chart-page/chart-page.component';
 import { LoginPageComponent } from './client/component/login-page/login-page.component';
 import { RegisterPageComponent } from './client/component/register-page/register-page.component';
+import { AlbumDetailPageComponent } from './client/component/album-detail-page/album-detail-page.component';
+import { ArtistDetailPageComponent } from './client/component/artist-detail-page/artist-detail-page.component';
 
 const clientRoutes: Routes = [
   {
@@ -20,6 +22,8 @@ const clientRoutes: Routes = [
       { path: 'songs-page', component: SongsPageComponent },
       { path: 'top100-page', component: Top100PageComponent },
       { path: 'charts-page', component: ChartPageComponent },
+      {path: 'album-detail-page/:id', component: AlbumDetailPageComponent},
+      {path: 'artist-detail-page/:id', component: ArtistDetailPageComponent}
     ]
   },
   {

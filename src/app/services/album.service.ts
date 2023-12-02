@@ -6,6 +6,7 @@ import { Album } from '../models/album.model';
   providedIn: 'root'
 })
 export class AlbumService {
+  
   private dbPath = '/albums';
 
   albumRef: AngularFirestoreCollection<Album>;
@@ -29,5 +30,7 @@ export class AlbumService {
   delete(id: string): Promise<void> {
     return this.albumRef.doc(id).delete();
   }
+
+
 
 }

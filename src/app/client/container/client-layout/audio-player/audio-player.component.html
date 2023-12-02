@@ -1,0 +1,8 @@
+<div class="audio-player-container">
+    <mat-slider></mat-slider>
+    <div class="controls">
+        <button mat-icon-button (click)="togglePlayPause()">
+            <mat-icon>{{ sound.playing() ? 'pause' : 'play_arrow' }}</mat-icon>
+        </button>
+    </div>
+</div>

@@ -3,12 +3,15 @@
     <div class="feature-artist-grid">
         <div class="feature-artist-container"
             *ngFor="let artist of artists?.slice(0, 5)">
-            <div class="img">
-                <img
-                    [src]="artist.photoUrl"
-                    alt>
-                <p>{{ artist.name }}</p>
-            </div>
+            <a style="text-decoration: none; color:black"
+                [routerLink]="['../artist-detail-page', artist.id]">
+                <div class="img">
+                    <img
+                        [src]="artist.photoUrl"
+                        alt>
+                    <p>{{ artist.name }}</p>
+                </div>
+            </a>
         </div>
 
     </div>
@@ -16,12 +19,15 @@
     <div class="feature-artist-grid">
         <div class="feature-artist-container"
             *ngFor="let artist of artists?.slice(5, 10)">
-            <div class="img">
-                <img
-                    [src]="artist.photoUrl"
-                    alt>
-                <p>{{ artist.name }}</p>
-            </div>
+            <a style="text-decoration: none; color:black"
+                [routerLink]="['../artist-detail-page', artist.id]">
+                <div class="img">
+                    <img
+                        [src]="artist.photoUrl"
+                        alt>
+                    <p>{{ artist.name }}</p>
+                </div>
+            </a>
         </div>
 
     </div>
@@ -29,12 +35,15 @@
     <div class="feature-artist-grid">
         <div class="feature-artist-container"
             *ngFor="let artist of artists?.slice(10, 15)">
-            <div class="img">
-                <img
-                    [src]="artist.photoUrl"
-                    alt>
-                <p>{{ artist.name }}</p>
-            </div>
+            <a style="text-decoration: none; color:black"
+                [routerLink]="['../artist-detail-page', artist.id]">
+                <div class="img">
+                    <img
+                        [src]="artist.photoUrl"
+                        alt>
+                    <p>{{ artist.name }}</p>
+                </div>
+            </a>
         </div>
 
     </div>

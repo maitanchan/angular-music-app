@@ -8,7 +8,7 @@ export const environment = {
     // messagingSenderId: "520072581586",
     // appId: "1:520072581586:web:34574855b536a09780780b",
     // measurementId: "G-GYN2WDGJJF"
-    apiKey: "AIzaSyD59CrPTmeeHuMGupEsp-f8FTtEz7AvpbU",
+    apiKey: "AIzaSyBVHLuyLHR7EJ2fUxc8WJQdQft86_4Rs0o",
     authDomain: "mp3-app-c366f.firebaseapp.com",
     projectId: "mp3-app-c366f",
     storageBucket: "mp3-app-c366f.appspot.com",

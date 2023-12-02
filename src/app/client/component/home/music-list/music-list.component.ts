@@ -44,7 +44,6 @@ export class MusicListComponent implements OnInit {
       )
     ).subscribe(data => {
       this.albums = data;
-   
     });
     
   }

@@ -21,6 +21,8 @@ export class AlbumModalsComponent implements OnInit {
     artistId: '',
     coverImages: '',
     songIds: [],
+    songs: [],
+    artists: []
   };
   message = '';
   songs: any;

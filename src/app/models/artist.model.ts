@@ -7,4 +7,5 @@ export class Artist {
   albumIds?: string[];
   songIds?: string[];
   albums?: string[];
+  songs?: string[];
 }

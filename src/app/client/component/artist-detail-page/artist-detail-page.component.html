@@ -1,0 +1,31 @@
+
+
+<div class="songs-page" *ngIf="artist">
+    <div>
+        <img sty [src]="artist.photoUrl" alt="{{ artist.name }}">
+        <div class="feature-artist-list">
+            <ul>
+                <li *ngFor="let album of artist.albums">{{ album }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="songs-page-container">
+
+        <ul>
+            <div
+                style="display: flex; margin:15px;justify-content: space-between;">
+                <h3>{{ artist.name }}</h3>
+                <!-- <h3>{{ artist.songs }}</h3> -->
+            </div>
+            <li *ngFor="let song of artist.songs">{{ song }}
+                <audio controls>
+                    <source
+                        src="https://firebasestorage.googleapis.com/v0/b/mp3-app-c366f.appspot.com/o/song1.mp3?alt=media&token=c0230b27-7107-44ab-836f-47a723eb1afd">
+                </audio>
+            </li>
+        </ul>
+
+    </div>
+
+</div>

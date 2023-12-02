@@ -6,9 +6,11 @@
             <p
                 style="margin-left: 25px; text-transform: uppercase; font-weight: bold;">{{
                 artist.name }}</p>
-            <div class="img">
-                <img [src]="artist.photoUrl">
-            </div>
+            <a [routerLink]="['../artist-detail-page', artist.id]">
+                <div class="img">
+                    <img [src]="artist.photoUrl">
+                </div>
+            </a>
             <div class="feature-artist-list">
                 <ul>
                     <li *ngFor="let album of artist.albums">{{ album }}</li>
