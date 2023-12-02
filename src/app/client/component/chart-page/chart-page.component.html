@@ -3,13 +3,22 @@
     <div class="songs-page-container">
         <h3>Song charts</h3>
         <ul>
-            <li *ngFor="let song of songs.slice(12, 18)">{{ song.title }}</li>
+            <li *ngFor="let song of songs.slice(12, 18)">{{ song.title }} <audio
+                    controls>
+                    <source [src]="song.url">
+                </audio></li>
         </ul>
         <ul>
-            <li *ngFor="let song of songs.slice(0, 6)">{{ song.title }}</li>
+            <li *ngFor="let song of songs.slice(0, 6)">{{ song.title }} <audio
+                    controls>
+                    <source [src]="song.url">
+                </audio></li>
         </ul>
         <ul>
-            <li *ngFor="let song of songs.slice(6, 12)">{{ song.title }}</li>
+            <li *ngFor="let song of songs.slice(6, 12)">{{ song.title }} <audio
+                    controls>
+                    <source [src]="song.url">
+                </audio></li>
         </ul>
     </div>
 
