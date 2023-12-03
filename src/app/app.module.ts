@@ -88,6 +88,7 @@ import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { AlbumDetailPageComponent } from './client/component/album-detail-page/album-detail-page.component';
 import { ArtistDetailPageComponent } from './client/component/artist-detail-page/artist-detail-page.component';
 import { AudioPlayerComponent } from './client/container/client-layout/audio-player/audio-player.component';
+import { VarifyEmailComponent } from './client/component/varify-email/varify-email.component';
 //import { UploadFormComponent } from './components/upload-form/upload-form.component';
 
 const APP_CONTAINERS = [
@@ -136,7 +137,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, AlbumDetailPageComponent, ArtistDetailPageComponent, AudioPlayerComponent, ],
+  declarations: [AppComponent, ...APP_CONTAINERS, AlbumDetailPageComponent, ArtistDetailPageComponent, AudioPlayerComponent, VarifyEmailComponent, ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

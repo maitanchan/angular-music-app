@@ -20,23 +20,32 @@
             <i class="bi bi-search"></i>
         </div>
     </div>
-    <div class="auth">
-        <a routerLink="./login"> <button class="button-login" type="button">Log
-                in</button></a>
-        <a routerLink="./register"><button class="button-register" type="button">Register</button></a>
-        <!-- <details class="dropdown">
+
+    <!-- Kiểm tra nếu authService.userData tồn tại -->
+    <ng-container *ngIf="authService.userData; else notLoggedIn">
+        <details class="dropdown">
             <summary role="button">
-                <a class="button"> <i class="bi bi-person-circle"></i>
-                </a>
+                <a class="button"> <i class="bi bi-person-circle"></i></a>
             </summary>
             <ul>
                 <li><a href="#">I'm a dropdown.</a></li>
                 <li><a href="#">In Pure CSS</a></li>
                 <li><a href="#">As in...</a></li>
                 <li><a href="#">No JavaScript.</a></li>
-                <li><a href="#">At All.</a></li>
+                <li><a href="#" (click)="authService.SignOutClient()"
+                        cDropdownItem>Logout</a></li>
             </ul>
-        </details> -->
+        </details>
+    </ng-container>
 
-    </div>
+    <!-- Nếu authService.userData không tồn tại -->
+    <ng-template #notLoggedIn>
+        <div class="auth">
+            <a routerLink="./login"><button class="button-login" type="button">Log
+                    in</button></a>
+            <a routerLink="./register"><button class="button-register"
+                    type="button">Register</button></a>
+        </div>
+    </ng-template>
+
 </header>

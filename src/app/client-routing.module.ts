@@ -11,6 +11,7 @@ import { LoginPageComponent } from './client/component/login-page/login-page.com
 import { RegisterPageComponent } from './client/component/register-page/register-page.component';
 import { AlbumDetailPageComponent } from './client/component/album-detail-page/album-detail-page.component';
 import { ArtistDetailPageComponent } from './client/component/artist-detail-page/artist-detail-page.component';
+import { VarifyEmailComponent } from './client/component/varify-email/varify-email.component';
 
 const clientRoutes: Routes = [
   {
@@ -33,7 +34,11 @@ const clientRoutes: Routes = [
   {
     path: 'register',
     component: RegisterPageComponent
-  }
+  },
+  {
+    path: 'varify-email',
+     component : VarifyEmailComponent
+    },
 ];
 
 @NgModule({

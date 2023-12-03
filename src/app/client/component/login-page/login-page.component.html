@@ -1,15 +1,14 @@
 <!-- src/app/login/login.component.html -->
 
 <div class="login-container">
-    <form (submit)="login()">
+    <form>
         <div class="form-container">
-            <h3>LOGO</h3>
-            <input type="text" id="email" name="email" [(ngModel)]="email"
-                placeholder="Email" required>
+            <h3>Login</h3>
+            <input type="text" id="email" name="email"
+                placeholder="Email" #userName required>
 
             <input type="password" id="password" name="password"
-                [(ngModel)]="password"
-                placeholder="Password" required>
+                placeholder="Password" #userPassword required>
 
             <div class="remember-forgot">
                 <label>
@@ -19,7 +18,9 @@
                 <a href="#">Forgot password?</a>
             </div>
             <br><br><br>
-            <button type="submit">Login</button>
+            <button
+                (click)="authService.SignInClient(userName.value, userPassword.value)"
+                type="submit">Login</button>
         </div>
         <div class="or-login-with">
             <p>Or log in with</p>

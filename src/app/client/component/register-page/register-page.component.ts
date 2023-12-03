@@ -2,14 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 
-export class UserRegister {
-  uid?: string;
-  displayName?: string;
-  birth?:string;
-  gener?:string;
-  email?: string;
-  password?:string;
-}
+
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
@@ -17,23 +10,30 @@ export class UserRegister {
 })
 
 export class RegisterPageComponent implements OnInit {
+  email : string = '';
+  password : string = '';
 
-  user: UserRegister = new UserRegister();
-
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private auth : AuthService) { }
 
   ngOnInit(): void {
   }
 
-  saveGener(): void {
-    this.authService.Register(this.user).then(() => {
-      alert('Created new item successfully!');
-      this.router.navigate(['/client/login']);
-    });
-  }
-  
+  register() {
 
-  newGener(): void {
-    this.user = new UserRegister();
+    if(this.email == '') {
+      alert('Please enter email');
+      return;
+    }
+
+    if(this.password == '') {
+      alert('Please enter password');
+      return;
+    }
+
+    this.auth.register(this.email,this.password);
+    
+    this.email = '';
+    this.password = '';
+
   }
 }

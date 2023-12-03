@@ -48,49 +48,26 @@ export class AuthService {
     this.userRef = db.collection(this.dbPath)
   }
 
-  Register(user: UserRegister):any{
-      return this.userRef.add({...user})
-  }
+ // register method
+ register(email : string, password : string) {
+  this.afAuth.createUserWithEmailAndPassword(email, password).then( res => {
+    alert('Registration Successful');
+    this.sendEmailForVarification(res.user);
+    this.router.navigate(['/client/login']);
+  }, err => {
+    alert(err.message);
+    this.router.navigate(['/register']);
+  })
+}
 
-  private displayName: string | undefined;
-
-  setDisplayName(name: string) {
-    this.displayName = name;
-  }
-
-  getDisplayName(): string | undefined {
-    return this.displayName;
-  }
-
-   login(email: string, password: string) {
-    return this.afs
-      .collection('users', (ref) => ref.where('email', '==', email).where('password', '==', password))
-      .get()
-      .toPromise()
-      .then((querySnapshot) => {
-        if (querySnapshot && !querySnapshot.empty) {
-          // Lấy document đầu tiên vì chúng ta đã sử dụng where để lọc.
-          const userDoc = querySnapshot.docs[0];
-
-          // Lấy dữ liệu displayName từ document.
-          const displayName = userDoc.get('displayName');
-
-          // Lưu dữ liệu vào AuthService.
-          this.setDisplayName(displayName);
-
-          // Điều hướng đến trang home.
-          this.router.navigate(['/client/home']);
-
-          return Promise.resolve('Login successful');
-        } else {
-          return Promise.reject('Invalid email or password');
-        }
-      })
-      .catch((error) => {
-        console.error('Error during login:', error);
-        return Promise.reject('Login failed');
-      });
-  }
+sendEmailForVarification(user : any) {
+  console.log(user);
+  user.sendEmailVerification().then((res : any) => {
+    // this.router.navigate(['/client/varify-email']);
+  }, (err : any) => {
+    alert('Something went wrong. Not able to send mail to your email.')
+  })
+}
   
 
   getUserData(uid: string) {
@@ -106,6 +83,22 @@ export class AuthService {
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['songs']);
+          }
+        });
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
+  }
+
+  SignInClient(email: string, password: string) {
+    return this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.SetUserData(result.user);
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            this.router.navigate(['/client/home']);
           }
         });
       })
@@ -153,6 +146,14 @@ export class AuthService {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
+    });
+  }
+
+  SignOutClient() {
+    this.userData = null;
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+      this.router.navigate(['/client/home']);
     });
   }
 }
