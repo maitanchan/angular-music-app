@@ -6,6 +6,7 @@
             <li *ngFor="let song of songs.slice(0, 6)"
                 (click)="toggleAudioDropdown(song)">
                 {{ song.title }}
+
                 <app-audio-player *ngIf="song.showAudioDropdown"
                     [selectedSong]="song"
                     style="z-index: 9999"></app-audio-player>
@@ -17,21 +18,26 @@
     <div class="song-list">
         <ul>
             <li *ngFor="let song of songs.slice(6, 12)"
-                (click)="toggleAudioDropdown(song)">{{ song.title }}
+                (click)="toggleAudioDropdown(song)">
+                {{ song.title }}
+
                 <app-audio-player *ngIf="song.showAudioDropdown"
                     [selectedSong]="song"
                     style="z-index: 9999"></app-audio-player>
-            </ul>
-        </div>
-
-        <div class="song-list">
-            <ul>
-                <li *ngFor="let song of songs.slice(12, 18)"
-                    (click)="toggleAudioDropdown(song)">{{ song.title }}
-                    <app-audio-player *ngIf="song.showAudioDropdown"
-                        [selectedSong]="song"
-                        style="z-index: 9999"></app-audio-player>
-                </li>
-            </ul>
-        </div>
+            </li>
+        </ul>
     </div>
+
+    <div class="song-list">
+        <ul>
+            <li *ngFor="let song of songs.slice(12,18)"
+                (click)="toggleAudioDropdown(song)">
+                {{ song.title }}
+
+                <app-audio-player *ngIf="song.showAudioDropdown"
+                    [selectedSong]="song"
+                    style="z-index: 9999"></app-audio-player>
+            </li>
+        </ul>
+    </div>
+</div>
