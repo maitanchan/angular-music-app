@@ -2,21 +2,37 @@ import { Injectable, NgZone } from '@angular/core';
 import { User } from '../models/user.model';
 import {
   AngularFirestore,
+  AngularFirestoreCollection,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+
+export class UserRegister {
+  uid?: string;
+  displayName?: string;
+  birth?:string;
+  gener?:string;
+  email?: string;
+  password?:string;
+}
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   userData: any; // Save logged in user data
+
+  private dbPath = 'users'
+
+  userRef: AngularFirestoreCollection<UserRegister>;
+
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private db: AngularFirestore
   ) {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
@@ -30,7 +46,13 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user')!);
       }
     });
+    this.userRef = db.collection(this.dbPath)
   }
+
+  Register(user: UserRegister):any{
+      return this.userRef.add({...user})
+  }
+
   // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth

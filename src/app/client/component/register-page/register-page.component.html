@@ -5,28 +5,30 @@
         <div class="form-container">
             <h3>LOGO</h3>
             <input type="text" id="yourname" name="username"
-                placeholder="Your Name" required>
+                placeholder="Your Name" required [(ngModel)]="user.displayName">
             <label for>Date of birth </label>
-            <input type="date" id="yourname" name="username"
-                placeholder="Your Name" required>
+            <input type="date" id="date" name="date"
+                required [(ngModel)]="user.birth">
 
             <div class="remember-forgot">
                 <label>
-                    <input type="radio" name="remember">
+                    <input type="radio" name="remember" [(ngModel)]="user.gener"
+                        value="male">
                     <span>Male</span>
 
-                    <input type="radio" name="remember">
+                    <input type="radio" name="remember" [(ngModel)]="user.gener"
+                        value="female">
                     <span>Female</span>
                 </label>
             </div>
             <!-- <input type="date" required> -->
-            <input type="text" id="username" name="username"
-                placeholder="Email" required>
+            <input type="text" id="email" name="email"
+                placeholder="Email" required [(ngModel)]="user.email">
 
             <input type="password" id="password" name="password"
-                placeholder="Password" required>
+                placeholder="Password" required [(ngModel)]="user.password">
             <br><br><br>
-            <button type="submit">Register</button>
+            <button (click)="saveGener()" type="submit">Register</button>
         </div>
         <div class="or-login-with">
             <p>Or sig in with</p>
