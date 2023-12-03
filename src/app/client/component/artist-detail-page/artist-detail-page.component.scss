@@ -82,13 +82,10 @@
       display: block;
       position: relative;
       bottom:55px;
-      border-radius: 25px; // Góc bo tròn
       overflow: hidden; // Ẩn phần nội dung vượt quá khung
     }
   
-    audio::-webkit-media-controls-panel {
-      border-radius: 10px; // Góc bo tròn
-    }
+   
   
     audio::-webkit-media-controls-play-button {
       color: #000; // Màu của nút phát
@@ -109,10 +106,6 @@
       color: #000; // Màu của nút tắt tiếng
     }
   
-    audio::-webkit-media-controls-play-button:hover,
-    audio::-webkit-media-controls-mute-button:hover {
-      border-radius: 50%;
-    }
     ul {
       list-style-type: none;
       border: 1px solid #c5c5c5;
@@ -232,4 +225,33 @@
             }
           }
         }
+  }
+
+  audio:hover, audio:focus, audio:active
+  {
+  -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+  -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+  box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  transform: scale(1.05);
+  }
+  
+  audio
+  {
+  -webkit-transition:all 0.5s linear;
+  -moz-transition:all 0.5s linear;
+  -o-transition:all 0.5s linear;
+  transition:all 0.5s linear;
+  -moz-box-shadow: 2px 2px 4px 0px #006773;
+  -webkit-box-shadow:  2px 2px 4px 0px #006773;
+  box-shadow: 2px 2px 4px 0px #006773;
+  -moz-border-radius:7px 7px 7px 7px ;
+  -webkit-border-radius:7px 7px 7px 7px ;
+  border-radius:7px 7px 7px 7px ;
+  }
+  
+  audio::-webkit-media-controls-enclosure {
+    background-color: #c6c6ec;
+    border-radius:7px 7px 7px 7px ;
   }

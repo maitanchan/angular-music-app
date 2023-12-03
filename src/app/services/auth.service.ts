@@ -8,7 +8,6 @@ import {
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-
 export class UserRegister {
   uid?: string;
   displayName?: string;
@@ -51,6 +50,51 @@ export class AuthService {
 
   Register(user: UserRegister):any{
       return this.userRef.add({...user})
+  }
+
+  private displayName: string | undefined;
+
+  setDisplayName(name: string) {
+    this.displayName = name;
+  }
+
+  getDisplayName(): string | undefined {
+    return this.displayName;
+  }
+
+   login(email: string, password: string) {
+    return this.afs
+      .collection('users', (ref) => ref.where('email', '==', email).where('password', '==', password))
+      .get()
+      .toPromise()
+      .then((querySnapshot) => {
+        if (querySnapshot && !querySnapshot.empty) {
+          // Lấy document đầu tiên vì chúng ta đã sử dụng where để lọc.
+          const userDoc = querySnapshot.docs[0];
+
+          // Lấy dữ liệu displayName từ document.
+          const displayName = userDoc.get('displayName');
+
+          // Lưu dữ liệu vào AuthService.
+          this.setDisplayName(displayName);
+
+          // Điều hướng đến trang home.
+          this.router.navigate(['/client/home']);
+
+          return Promise.resolve('Login successful');
+        } else {
+          return Promise.reject('Invalid email or password');
+        }
+      })
+      .catch((error) => {
+        console.error('Error during login:', error);
+        return Promise.reject('Login failed');
+      });
+  }
+  
+
+  getUserData(uid: string) {
+    return this.afs.collection('users').doc(uid).valueChanges();
   }
 
   // Sign in with email/password

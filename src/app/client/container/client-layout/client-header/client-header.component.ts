@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./client-header.component.scss']
 })
 export class ClientHeaderComponent {
-
+  displayName: string | undefined;
 }

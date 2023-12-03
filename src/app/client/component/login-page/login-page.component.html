@@ -1,13 +1,14 @@
 <!-- src/app/login/login.component.html -->
 
 <div class="login-container">
-    <form>
+    <form (submit)="login()">
         <div class="form-container">
             <h3>LOGO</h3>
-            <input type="text" id="username" name="username"
-                placeholder="Username" required>
+            <input type="text" id="email" name="email" [(ngModel)]="email"
+                placeholder="Email" required>
 
             <input type="password" id="password" name="password"
+                [(ngModel)]="password"
                 placeholder="Password" required>
 
             <div class="remember-forgot">

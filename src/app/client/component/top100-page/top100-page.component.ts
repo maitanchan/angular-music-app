@@ -39,14 +39,29 @@ export class Top100PageComponent implements OnInit {
     this.songService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+          ({ id: c.payload.doc.id, ...c.payload.doc.data(), showAudioDropdown: false })
         )
       )
     ).subscribe(data => {
       this.songs = data;
-      forEach(this.songs, x=>x.releaseDate = new Date(x.releaseDate.seconds * 1000))
-      console.log(this.songs)
+      forEach(this.songs, x => x.releaseDate = new Date(x.releaseDate.seconds * 1000))
+      console.log(this.songs);
     });
+  }
+
+  toggleAudioDropdown(song: any): void {
+    song.showAudioDropdown = !song.showAudioDropdown;
+    this.closeOtherDropdowns(song);
+  }
+
+  closeOtherDropdowns(currentSong: any): void {
+    if (this.songs) {
+      this.songs.forEach((song: any) => {
+        if (song !== currentSong) {
+          song.showAudioDropdown = false;
+        }
+      });
+    }
   }
 
   retrieveAlbums(): void {

@@ -1,15 +1,11 @@
 <div class="audio-player">
-    <div class="player-controls">
-        <!-- Thêm các nút điều khiển audio (play, pause, next, previous) -->
-        <button (click)="playPause()">Play/Pause</button>
-        <!-- <button (click)="next()">Next</button>
-        <button (click)="previous()">Previous</button> -->
-    </div>
 
     <div class="song-info">
-        <h3>{{ currentSong.title }}</h3>
-        <p>{{ currentSong.artist }}</p>
+        <h3
+            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{
+            selectedSong.title }}</h3>
+
     </div>
 
-    <audio controls [src]="currentSong.url"></audio>
+    <audio controls [src]="selectedSong.url"></audio>
 </div>

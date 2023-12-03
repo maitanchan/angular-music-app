@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { forEach } from 'lodash-es';
-import { map } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AlbumService } from 'src/app/services/album.service';
 import { SongService } from 'src/app/services/song.service';
 
@@ -9,7 +9,7 @@ import { SongService } from 'src/app/services/song.service';
   templateUrl: './songs-page.component.html',
   styleUrls: ['./songs-page.component.scss']
 })
-export class SongsPageComponent {
+export class SongsPageComponent implements OnInit {
   topSongs: any[] = [
     { rank: 1, title: 'Song 1', artist: 'Artist 1' },
     { rank: 2, title: 'Song 2', artist: 'Artist 2' },
@@ -39,14 +39,29 @@ export class SongsPageComponent {
     this.songService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+          ({ id: c.payload.doc.id, ...c.payload.doc.data(), showAudioDropdown: false })
         )
       )
     ).subscribe(data => {
       this.songs = data;
-      forEach(this.songs, x=>x.releaseDate = new Date(x.releaseDate.seconds * 1000))
-      console.log(this.songs)
+      forEach(this.songs, x => x.releaseDate = new Date(x.releaseDate.seconds * 1000))
+      console.log(this.songs);
     });
+  }
+
+  toggleAudioDropdown(song: any): void {
+    song.showAudioDropdown = !song.showAudioDropdown;
+    this.closeOtherDropdowns(song);
+  }
+
+  closeOtherDropdowns(currentSong: any): void {
+    if (this.songs) {
+      this.songs.forEach((song: any) => {
+        if (song !== currentSong) {
+          song.showAudioDropdown = false;
+        }
+      });
+    }
   }
 
   retrieveAlbums(): void {
