@@ -1,8 +1,15 @@
-<div class="audio-player-container">
-    <mat-slider></mat-slider>
-    <div class="controls">
-        <button mat-icon-button (click)="togglePlayPause()">
-            <mat-icon>{{ sound.playing() ? 'pause' : 'play_arrow' }}</mat-icon>
-        </button>
+<div class="audio-player">
+    <div class="player-controls">
+        <!-- Thêm các nút điều khiển audio (play, pause, next, previous) -->
+        <button (click)="playPause()">Play/Pause</button>
+        <!-- <button (click)="next()">Next</button>
+        <button (click)="previous()">Previous</button> -->
     </div>
+
+    <div class="song-info">
+        <h3>{{ currentSong.title }}</h3>
+        <p>{{ currentSong.artist }}</p>
+    </div>
+
+    <audio controls [src]="currentSong.url"></audio>
 </div>

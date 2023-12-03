@@ -14,8 +14,6 @@ import { AppComponent } from './app.component';
 
 // Import containers
 import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent } from './containers';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatIconModule } from '@angular/material/icon';
 
 
 import {
@@ -86,7 +84,7 @@ import { FeatureArtistComponent } from './client/component/artist/feature-artist
 import { ArtistsComponent } from './client/component/artist/artists/artists.component';
 import { LoginPageComponent } from './client/component/login-page/login-page.component';
 import { RegisterPageComponent } from './client/component/register-page/register-page.component';
-import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { AlbumDetailPageComponent } from './client/component/album-detail-page/album-detail-page.component';
 import { ArtistDetailPageComponent } from './client/component/artist-detail-page/artist-detail-page.component';
 import { AudioPlayerComponent } from './client/container/client-layout/audio-player/audio-player.component';
@@ -111,26 +109,26 @@ const APP_CONTAINERS = [
 
   AlbumsListComponent,
   AlbumModalsComponent,
-  ClientLayoutComponent, 
-  ClientHeaderComponent, 
-  ClientFooterComponent, 
+  ClientLayoutComponent,
+  ClientHeaderComponent,
+  ClientFooterComponent,
 
-  HomeComponent, 
+  HomeComponent,
   ArtistComponent,
-  ClientHomeComponent, 
+  ClientHomeComponent,
 
   MusicPlayerComponent,
-  MusicListComponent, 
-  SongsComponent, 
+  MusicListComponent,
+  SongsComponent,
   Top100Component,
-  AlbumsComponent, 
+  AlbumsComponent,
 
-  SongsPageComponent, 
-  Top100PageComponent, 
+  SongsPageComponent,
+  Top100PageComponent,
   ChartPageComponent,
 
-  FeatureArtistComponent, 
-  ArtistsComponent, 
+  FeatureArtistComponent,
+  ArtistsComponent,
 
   LoginPageComponent,
   RegisterPageComponent,
@@ -138,7 +136,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, AlbumDetailPageComponent, ArtistDetailPageComponent, AudioPlayerComponent,  ],
+  declarations: [AppComponent, ...APP_CONTAINERS, AlbumDetailPageComponent, ArtistDetailPageComponent, AudioPlayerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -182,8 +180,6 @@ const APP_CONTAINERS = [
     CalendarModule,
     ConfirmPopupModule,
     AngularFireStorageModule,
-    MatSliderModule,
-    MatIconModule
     //AngularFireAuthModule
   ],
   providers: [
@@ -196,4 +192,4 @@ const APP_CONTAINERS = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,36 @@
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .player-controls {
+      button {
+        background-color: #2e2e2e;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        margin: 0 5px;
+        cursor: pointer;
+  
+        &:hover {
+          background-color: #3e3e3e;
+        }
+      }
+    }
+  
+    .song-info {
+      text-align: center;
+    }
+  
+    audio {
+      width: 100%;
+    }
+  }
+  

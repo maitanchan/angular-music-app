@@ -5,30 +5,31 @@
         <ul>
             <li *ngFor="let song of songs.slice(0, 6)">
                 {{ song.title }}
-                <audio controls>
+                <!-- <audio controls>
                     <source [src]="song.url">
-                </audio>
+                </audio> -->
             </li>
-
         </ul>
+
     </div>
 
     <div class="song-list">
         <ul>
             <li *ngFor="let song of songs.slice(6, 12)">{{ song.title }}
-                <audio controls>
+                <!-- <audio controls>
                     <source [src]="song.url">
-                </audio></li>
+                </audio></li> -->
 
-        </ul>
-    </div>
+            </ul>
+        </div>
 
-    <div class="song-list">
-        <ul>
-            <li *ngFor="let song of songs.slice(12, 18)">{{ song.title }}
-                <audio controls>
+        <div class="song-list">
+            <ul>
+                <li *ngFor="let song of songs.slice(12, 18)">{{ song.title }}
+                    <!-- <audio controls>
                     <source [src]="song.url">
-                </audio></li>
-        </ul>
+                </audio> -->
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
