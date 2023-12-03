@@ -44,6 +44,8 @@ export class AuthService {
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
       }
+
+      console.log(this.userData.uid)
     });
     this.userRef = db.collection(this.dbPath)
   }

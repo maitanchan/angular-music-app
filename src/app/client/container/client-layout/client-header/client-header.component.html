@@ -21,24 +21,23 @@
         </div>
     </div>
 
-    <!-- Kiểm tra nếu authService.userData tồn tại -->
     <ng-container *ngIf="authService.userData; else notLoggedIn">
         <details class="dropdown">
             <summary role="button">
-                <a class="button"> <i class="bi bi-person-circle"></i></a>
+                <a class="button"> <i style="font-size: 30px;"
+                        class="bi bi-person-circle"></i></a>
             </summary>
             <ul>
-                <li><a href="#">I'm a dropdown.</a></li>
-                <li><a href="#">In Pure CSS</a></li>
-                <li><a href="#">As in...</a></li>
-                <li><a href="#">No JavaScript.</a></li>
-                <li><a href="#" (click)="authService.SignOutClient()"
+                <li><a routerLink="./home">Profile</a></li>
+                <li><a routerLink="./home">Liked Songs</a></li>
+                <li><a routerLink="./home">Language</a></li>
+                <li><a routerLink="./home">Dark Mode</a></li>
+                <li><a routerLink="./home" (click)="authService.SignOutClient()"
                         cDropdownItem>Logout</a></li>
             </ul>
         </details>
     </ng-container>
 
-    <!-- Nếu authService.userData không tồn tại -->
     <ng-template #notLoggedIn>
         <div class="auth">
             <a routerLink="./login"><button class="button-login" type="button">Log
