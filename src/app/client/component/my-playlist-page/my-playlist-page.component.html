@@ -11,8 +11,12 @@
         <h3>My Playlist</h3>
 
         <ul>
-            <li *ngFor="let song of favoriteSongs">
+            <li *ngFor="let song of favoriteSongs"
+                (click)="toggleAudioDropdown(song)">
                 {{ song.title }}
+                <app-audio-player *ngIf="song.showAudioDropdown"
+                    [selectedSong]="song"
+                    style="z-index: 9999"></app-audio-player>
             </li>
         </ul>
 
