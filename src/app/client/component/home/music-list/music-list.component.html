@@ -32,10 +32,14 @@
             <span>Country</span>
         </div>
         <div class="songs">
-            <div class="song"
+            <div style="cursor:pointer;" class="song"
+                (click)="toggleAudioDropdown(song)"
                 *ngFor="let song of songs.slice(0, 6); let i = index">
                 <span class="rank">{{ i + 1 }} </span>
                 <span style="font-size: 15px;">{{ song.title }}</span>
+                <app-audio-player *ngIf="song.showAudioDropdown"
+                    [selectedSong]="song"
+                    style="z-index: 9999"></app-audio-player>
             </div>
 
         </div>

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { forEach } from 'lodash-es';
 import { map, of, switchMap } from 'rxjs';
 import { Artist } from 'src/app/models/artist.model';
+import { AlbumService } from 'src/app/services/album.service';
 import { SongService } from 'src/app/services/song.service';
 
 @Component({
@@ -15,8 +16,9 @@ export class ArtistDetailPageComponent   implements OnInit {
   artistId?: string;
   artist?: Artist;
   songs?: any;
+  albums?: any;
 
-  constructor(private route: ActivatedRoute, private firestore: AngularFirestore,private songService: SongService) {}
+  constructor(private route: ActivatedRoute, private firestore: AngularFirestore,private songService: SongService, private albumService: AlbumService) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -24,9 +26,24 @@ export class ArtistDetailPageComponent   implements OnInit {
       this.loadAlbumData();
     });
     this.retrieveSongs();
+    this.retrieveAlbums();
   }
   refreshList(): void {
     this.retrieveSongs();
+    this.retrieveAlbums();
+  }
+
+  retrieveAlbums(): void {
+    this.albumService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.albums = data;
+    });
+    
   }
 
   retrieveSongs(): void {
