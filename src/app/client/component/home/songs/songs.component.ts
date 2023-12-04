@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { forEach } from 'lodash-es';
 import { map } from 'rxjs/operators';
 import { SongService } from 'src/app/services/song.service';
+import { MyPlaylistService } from 'src/app/services/my-playlist.service';
 
 @Component({
   selector: 'app-songs',
@@ -10,8 +11,9 @@ import { SongService } from 'src/app/services/song.service';
 })
 export class SongsComponent implements OnInit {
   songs?: any;
+  isFavorite: boolean[] = [];
 
-  constructor(private songService: SongService) { }
+  constructor(private songService: SongService,private playlistService: MyPlaylistService) { }
 
   ngOnInit(): void {
     this.retrieveSongs();
@@ -48,5 +50,10 @@ export class SongsComponent implements OnInit {
         }
       });
     }
+  }
+
+  addToPlaylist(song: any, index: number): void {
+    this.playlistService.addToPlaylist(song);
+    this.isFavorite[index] = true;
   }
 }

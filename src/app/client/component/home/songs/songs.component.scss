@@ -11,6 +11,9 @@
       padding: 1rem;
       border-radius: 5px;
 
+      .bi-heart-fill.active {
+        color: red;
+      }
      // Trong file styles.scss hoặc styles.css
 
     audio {

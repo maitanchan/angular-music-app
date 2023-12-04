@@ -89,6 +89,7 @@ import { AlbumDetailPageComponent } from './client/component/album-detail-page/a
 import { ArtistDetailPageComponent } from './client/component/artist-detail-page/artist-detail-page.component';
 import { AudioPlayerComponent } from './client/container/client-layout/audio-player/audio-player.component';
 import { VarifyEmailComponent } from './client/component/varify-email/varify-email.component';
+import { MyPlaylistPageComponent } from './client/component/my-playlist-page/my-playlist-page.component';
 //import { UploadFormComponent } from './components/upload-form/upload-form.component';
 
 const APP_CONTAINERS = [
@@ -137,7 +138,7 @@ const APP_CONTAINERS = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...APP_CONTAINERS, AlbumDetailPageComponent, ArtistDetailPageComponent, AudioPlayerComponent, VarifyEmailComponent, ],
+  declarations: [AppComponent, ...APP_CONTAINERS, AlbumDetailPageComponent, ArtistDetailPageComponent, AudioPlayerComponent, VarifyEmailComponent, MyPlaylistPageComponent, ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

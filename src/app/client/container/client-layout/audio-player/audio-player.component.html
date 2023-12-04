@@ -2,9 +2,12 @@
 
     <div class="song-info">
         <h3
-            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{
-            selectedSong.title }}</h3>
+            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            {{ selectedSong.title }}
+        </h3>
 
+        <i (click)="addToPlaylist(selectedSong)" class="bi bi-heart-fill"
+            style="color: rgb(255, 81, 81); font-size: 20px;"></i>
     </div>
 
     <audio controls [src]="selectedSong.url" autoplay></audio>

@@ -30,4 +30,14 @@ export class MyPlaylistService {
   delete(id: string): Promise<void> {
     return this.myPlaylistRef.doc(id).delete();
   }
+
+  favoriteSongs: any[] = [];
+
+  addToPlaylist(song: any): void {
+    this.favoriteSongs.push(song);
+  }
+
+  getPlaylist(): any[] {
+    return this.favoriteSongs;
+  }
 }

@@ -12,6 +12,7 @@ import { RegisterPageComponent } from './client/component/register-page/register
 import { AlbumDetailPageComponent } from './client/component/album-detail-page/album-detail-page.component';
 import { ArtistDetailPageComponent } from './client/component/artist-detail-page/artist-detail-page.component';
 import { VarifyEmailComponent } from './client/component/varify-email/varify-email.component';
+import { MyPlaylistPageComponent } from './client/component/my-playlist-page/my-playlist-page.component';
 
 const clientRoutes: Routes = [
   {
@@ -24,7 +25,8 @@ const clientRoutes: Routes = [
       { path: 'top100-page', component: Top100PageComponent },
       { path: 'charts-page', component: ChartPageComponent },
       {path: 'album-detail-page/:id', component: AlbumDetailPageComponent},
-      {path: 'artist-detail-page/:id', component: ArtistDetailPageComponent}
+      {path: 'artist-detail-page/:id', component: ArtistDetailPageComponent},
+      {path: 'my-playlist', component: MyPlaylistPageComponent}
     ]
   },
   {
