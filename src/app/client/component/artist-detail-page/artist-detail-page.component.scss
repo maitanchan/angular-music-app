@@ -74,38 +74,6 @@
    .songs-page-container{
     margin-top: 35px;
     margin-left: 45px;
-  
-    audio {
-      width: 100%;
-      max-width: 600px;
-      margin: 20px auto;
-      display: block;
-      position: relative;
-      bottom:55px;
-      overflow: hidden; // Ẩn phần nội dung vượt quá khung
-    }
-  
-   
-  
-    audio::-webkit-media-controls-play-button {
-      color: #000; // Màu của nút phát
-      font-size: 1.5em; // Kích thước của nút phát
-    }
-  
-    audio::-webkit-media-controls-time-remaining-display,
-    audio::-webkit-media-controls-timeline {
-      color: #000; // Màu của thời gian còn lại và dải thời gian
-    }
-  
-    audio::-webkit-media-controls-current-time-display {
-      color: #000; // Màu của thời gian hiện tại
-    }
-  
-  
-    audio::-webkit-media-controls-mute-button {
-      color: #000; // Màu của nút tắt tiếng
-    }
-  
     ul {
       list-style-type: none;
       border: 1px solid #c5c5c5;
@@ -113,15 +81,16 @@
       padding: 0;
       width: 1000px;
       position: relative;
-  
+
       li {
-        // padding: 10px;
+        padding: 30px;
         cursor: pointer;
         transition: background-color 0.3s;
-        margin-left: 20px;
-        position: relative;
-        top: 20px;
-  
+
+        &:hover {
+          background-color: #EEF1F4;
+          border-radius: 5px;
+        }
       }
     }
   }
@@ -227,31 +196,23 @@
         }
   }
 
-  audio:hover, audio:focus, audio:active
-  {
-  -webkit-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-  -moz-box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-  box-shadow: 15px 15px 20px rgba(0,0, 0, 0.4);
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  transform: scale(1.05);
+ 
+
+  .album{
+    .album-title {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-left:160px;
+    }
   }
-  
-  audio
-  {
-  -webkit-transition:all 0.5s linear;
-  -moz-transition:all 0.5s linear;
-  -o-transition:all 0.5s linear;
-  transition:all 0.5s linear;
-  -moz-box-shadow: 2px 2px 4px 0px #006773;
-  -webkit-box-shadow:  2px 2px 4px 0px #006773;
-  box-shadow: 2px 2px 4px 0px #006773;
-  -moz-border-radius:7px 7px 7px 7px ;
-  -webkit-border-radius:7px 7px 7px 7px ;
-  border-radius:7px 7px 7px 7px ;
+
+  img{
+      height: 200px;
+      width: 300px;
+      margin-left: 75px;
+      margin-top: 50px;
+      object-fit: cover;
   }
-  
-  audio::-webkit-media-controls-enclosure {
-    background-color: #c6c6ec;
-    border-radius:7px 7px 7px 7px ;
-  }
+

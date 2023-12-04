@@ -11,11 +11,13 @@
                 style="display: flex; margin:15px;justify-content: space-between;">
                 <h3>{{ album.artists }}</h3>
             </div>
-            <li *ngFor="let song of album.songs">{{ song }}
-                <audio controls>
-                    <source
-                        src="https://firebasestorage.googleapis.com/v0/b/mp3-app-c366f.appspot.com/o/song1.mp3?alt=media&token=c0230b27-7107-44ab-836f-47a723eb1afd">
-                </audio>
+            <li *ngFor="let song of songs"
+                (click)="toggleAudioDropdown(song)">
+                {{ song.title }}
+
+                <app-audio-player *ngIf="song.showAudioDropdown"
+                    [selectedSong]="song"
+                    style="z-index: 9999"></app-audio-player>
             </li>
         </ul>
 

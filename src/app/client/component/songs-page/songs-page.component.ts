@@ -64,6 +64,7 @@ export class SongsPageComponent implements OnInit {
     }
   }
 
+  
   retrieveAlbums(): void {
     this.albumService.getAll().snapshotChanges().pipe(
       map(changes =>
