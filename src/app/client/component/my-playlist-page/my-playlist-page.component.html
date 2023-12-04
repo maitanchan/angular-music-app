@@ -14,9 +14,9 @@
             <li *ngFor="let song of favoriteSongs"
                 (click)="toggleAudioDropdown(song)">
                 {{ song.title }}
-                <app-audio-player *ngIf="song.showAudioDropdown"
+                <app-audio-mysong *ngIf="song.showAudioDropdown"
                     [selectedSong]="song"
-                    style="z-index: 9999"></app-audio-player>
+                    style="z-index: 9999"></app-audio-mysong>
             </li>
         </ul>
 
