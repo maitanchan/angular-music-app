@@ -1,6 +1,34 @@
-<h2>My Playlist</h2>
+<!-- <h2>My Playlist</h2>
 <ul>
     <li *ngFor="let song of favoriteSongs">
         {{ song.title }}
     </li>
-</ul>
+</ul> -->
+
+<div class="songs-page">
+
+    <div class="songs-page-container">
+        <h3>My Playlist</h3>
+
+        <ul>
+            <li *ngFor="let song of favoriteSongs">
+                {{ song.title }}
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="song-rankings" style="visibility: hidden;">
+        <h3>Song charts</h3>
+        <span class="line"></span>
+        <span class="line-2"></span>
+        <div class="area-rank">
+            <span>Country</span>
+            <span>Country</span>
+            <span>Country</span>
+        </div>
+        <div class="songs">
+
+        </div>
+    </div>
+</div>
